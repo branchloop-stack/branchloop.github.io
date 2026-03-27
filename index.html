@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRANCHED LOOP | Tecnología Vintage</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Orbitron:wght@600;800&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home">
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+
+    <header class="header">
+        <div class="brand">
+            <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hexagon Top -->
+                <polygon points="50,5 75,20 75,45 50,60 25,45 25,20" fill="none" stroke="#f59400" stroke-width="8"
+                    stroke-linejoin="round" />
+                <!-- Hexagon Bottom Left -->
+                <polygon points="28,48 53,63 53,88 28,103 3,88 3,63" fill="none" stroke="#f59400" stroke-width="8"
+                    stroke-linejoin="round" transform="translate(0, -5)" />
+                <!-- Hexagon Bottom Right -->
+                <polygon points="72,48 97,63 97,88 72,103 47,88 47,63" fill="none" stroke="#f59400" stroke-width="8"
+                    stroke-linejoin="round" transform="translate(0, -5)" />
+            </svg>
+            <span class="brand-name">BRANCHED LOOP</span>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="servicios.html" class="nav-link">Servicios</a>
+            <a href="cursos.html" class="nav-link">Cursos</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="video-hero">
+        <video class="hero-video" autoplay loop muted playsinline src="video/angar.mp4"></video>
+        <div class="video-fade"></div>
+        <div class="hero-content">
+            <a href="servicios.html" class="btn btn-primary">Descubrir Nuestros Servicios</a>
+        </div>
+    </div>
+
+    <main class="main-content">
+
+        <section class="section" id="quienes-somos" style="margin: 4rem 0 12rem 0;">
+            <h2 class="section-title font-title" style="text-align:center; display:block; margin-bottom: 3rem;">BRANCHED
+                LOOP <br> SOLUCIONES TECNOLÓGICAS</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center; padding: 0 2rem;">
+                <p class="font-body" style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; margin: 0;">
+                    "Somos un equipo multidisciplinario de especialistas en tecnología dedicados a transformar la
+                    complejidad técnica en soluciones estratégicas para nuestros clientes. Con una trayectoria sólida en
+                    soporte técnico, infraestructura y desarrollo web, nuestra misión es garantizar que la tecnología
+                    sea el motor de crecimiento de su negocio, y no un obstáculo. Nos distinguimos por un enfoque
+                    proactivo, donde la seguridad de la información y la optimización de procesos son los pilares de
+                    cada proyecto que entregamos."
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="redes" style="text-align: center; margin: 4rem 0;">
+            <h2 class="section-title font-title" style="margin-bottom: 2rem;">Redes Sociales</h2>
+            <div style="display: flex; justify-content: center; gap: 2.5rem;">
+                <a href="#" class="nav-link" style="display:inline-block;">
+                    <img src="imagenes/facebook.svg" alt="Facebook"
+                        style="width: 50px; height: 50px; filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg); transition: transform 0.3s ease;">
+                </a>
+                <a href="#" class="nav-link" style="display:inline-block;">
+                    <img src="imagenes/instagram.svg" alt="Instagram"
+                        style="width: 50px; height: 50px; filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg); transition: transform 0.3s ease;">
+                </a>
+                <a href="#" class="nav-link" style="display:inline-block;">
+                    <img src="imagenes/linkedin.svg" alt="LinkedIn"
+                        style="width: 50px; height: 50px; filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg); transition: transform 0.3s ease;">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="font-body">&copy; 2026 BRANCHED LOOP. Todos los derechos reservados. <span class="blink">_</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

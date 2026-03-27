@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | BRANCHED LOOP</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Orbitron:wght@600;800&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            background-image: none;
+            color: #191818;
+        }
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 2px solid #ccc;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            color: #191818;
+        }
+        .nav-link:hover {
+            color: var(--accent);
+            text-shadow: none;
+        }
+        .panel-3d {
+            background-color: #2e2e2f;
+            background: linear-gradient(145deg, #323232, #272727);
+            box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff;
+            border: 1px solid #2e2e2f;
+        }
+        .panel-inner {
+            background-color: #2e2e2f;
+            color: #e0e0e0;
+        }
+        .form-group label {
+            color: var(--accent);
+        }
+        .input-3d {
+            background-color: #191818;
+            border: 1px solid #3a3a3b;
+            color: #e0e0e0;
+            box-shadow: inset 2px 2px 5px #111111, inset -2px -2px 5px #222222;
+        }
+        .input-3d:focus {
+            border-color: var(--accent);
+            box-shadow: inset 2px 2px 5px #111111, inset -2px -2px 5px #222222, 0 0 8px rgba(245, 148, 0, 0.4);
+        }
+        .footer {
+            background-color: #f0f0f0;
+            border-top: 2px solid #ccc;
+            color: #191818;
+        }
+    </style>
+</head>
+<body class="bg-white" style="display: flex; flex-direction: column; min-height: 100vh;">
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+
+    <header class="header">
+        <div class="brand">
+            <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:1rem;">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Hexagon Top -->
+                    <polygon points="50,5 75,20 75,45 50,60 25,45 25,20" fill="none" stroke="#f59400" stroke-width="8" stroke-linejoin="round"/>
+                    <!-- Hexagon Bottom Left -->
+                    <polygon points="28,48 53,63 53,88 28,103 3,88 3,63" fill="none" stroke="#f59400" stroke-width="8" stroke-linejoin="round" transform="translate(0, -5)"/>
+                    <!-- Hexagon Bottom Right -->
+                    <polygon points="72,48 97,63 97,88 72,103 47,88 47,63" fill="none" stroke="#f59400" stroke-width="8" stroke-linejoin="round" transform="translate(0, -5)"/>
+                </svg>
+                <span class="brand-name">BRANCHED LOOP</span>
+            </a>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="servicios.html" class="nav-link">Servicios</a>
+            <a href="cursos.html" class="nav-link">Cursos</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="main-content" style="flex: 0 0 auto; padding-top: 6rem; padding-bottom: 4rem;">
+        <section class="section animate-on-load" style="text-align: center; margin-bottom: 0; padding-bottom: 2rem;">
+            <h2 class="section-title font-title" style="color: var(--accent);">Horarios y Citas</h2>
+            <p class="font-body" style="font-size: 1.2rem; color: #191818;">
+                Lunes a viernes: 9:00 a.m. a 6:00 p.m.<br>
+                Sábado y Domingo: cerrado.
+            </p>
+        </section>
+    </main>
+
+    <div style="background-color: #fcca00; padding: 4rem 2rem; width: 100%; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center;">
+        <div style="max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: flex-end;">
+            <section id="contacto" class="animate-on-load" style="width: 100%; max-width: 600px;">
+                <h2 class="section-title font-title" style="color: #191818; border-bottom-color: #191818;">// CONTACTO</h2>
+                <div class="contact-form-wrapper panel-3d" style="margin: 0; width: 100%;">
+                    <form class="contact-form panel-inner">
+                        <div class="form-group">
+                            <label for="name">> Nombre_Usuario</label>
+                            <input type="text" id="name" class="input-3d" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">> Correo_Terminal</label>
+                            <input type="email" id="email" class="input-3d" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">> Transmisión</label>
+                            <textarea id="message" rows="4" class="input-3d" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="btn-submit">Enviar Datos [ENTER]</button>
+                        <div class="form-status" id="form-status"></div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer" style="margin-top: auto;">
+        <p class="font-body">&copy; 2026 BRANCHED LOOP. Todos los derechos reservados. <span class="blink">_</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

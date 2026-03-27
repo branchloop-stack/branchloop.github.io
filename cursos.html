@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos | BRANCHED LOOP</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Orbitron:wght@600;800&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            background-image: none;
+            color: #191818;
+        }
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 2px solid #ccc;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            color: #191818;
+        }
+        .nav-link:hover {
+            color: var(--accent);
+            text-shadow: none;
+        }
+        .panel-3d {
+            background-color: #f0f0f0;
+            background: #ffffff;
+            box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff;
+            border: 1px solid #ddd;
+        }
+        .panel-inner {
+            background-color: #ffffff;
+        }
+        .card h3 {
+            color: #191818;
+        }
+        .footer {
+            background-color: #f0f0f0;
+            border-top: 2px solid #ccc;
+            color: #191818;
+        }
+        .outline-orange {
+            background: linear-gradient(145deg, #f59400, #b06a00);
+            border: none;
+        }
+        .outline-orange .panel-inner {
+            background-color: #fff9f0;
+        }
+    </style>
+</head>
+<body class="bg-white" style="display: flex; flex-direction: column; min-height: 100vh;">
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+
+    <header class="header">
+        <div class="brand">
+            <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:1rem;">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Hexagon Top -->
+                    <polygon points="50,5 75,20 75,45 50,60 25,45 25,20" fill="none" stroke="#f59400" stroke-width="8" stroke-linejoin="round"/>
+                    <!-- Hexagon Bottom Left -->
+                    <polygon points="28,48 53,63 53,88 28,103 3,88 3,63" fill="none" stroke="#f59400" stroke-width="8" stroke-linejoin="round" transform="translate(0, -5)"/>
+                    <!-- Hexagon Bottom Right -->
+                    <polygon points="72,48 97,63 97,88 72,103 47,88 47,63" fill="none" stroke="#f59400" stroke-width="8" stroke-linejoin="round" transform="translate(0, -5)"/>
+                </svg>
+                <span class="brand-name">BRANCHED LOOP</span>
+            </a>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="servicios.html" class="nav-link">Servicios</a>
+            <a href="cursos.html" class="nav-link">Cursos</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="section" id="cursos">
+            <h2 class="section-title font-title">// CURSOS</h2>
+            <div class="grid">
+                <div class="card panel-3d outline-orange">
+                    <div class="card-inner">
+                        <div class="card-icon">SYS.1</div>
+                        <h3>Fundamentos de Programación</h3>
+                        <p>Domina las bases de la lógica computacional y algoritmos esenciales.</p>
+                        <a href="cursos.html" class="btn btn-secondary">Acceder</a>
+                    </div>
+                </div>
+                <div class="card panel-3d outline-orange">
+                    <div class="card-inner">
+                        <div class="card-icon">SYS.2</div>
+                        <h3>Arquitectura Retro-Futurista</h3>
+                        <p>Aprende a diseñar interfaces inmersivas combinando estética vintage y principios modernos.</p>
+                        <a href="cursos.html" class="btn btn-secondary">Acceder</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="margin-top: auto;">
+        <p class="font-body">&copy; 2026 BRANCHED LOOP. Todos los derechos reservados. <span class="blink">_</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
