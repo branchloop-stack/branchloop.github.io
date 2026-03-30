@@ -509,4 +509,13 @@ body.home .header.scrolled {
     .title {
         font-size: 2.5rem;
     }
+
+    .course-card-layout {
+        flex-direction: column-reverse !important;
+    }
+
+    .course-card-image {
+        border-left: none !important;
+        border-bottom: 2px solid var(--bg-medium);
+    }
 }
