@@ -41,14 +41,36 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
             statusDiv.innerHTML = '';
             
-            // Simulate network delay and terminal output typing effect
-            setTimeout(() => {
+            const emailValue = document.getElementById('email') ? document.getElementById('email').value : '';
+            const messageValue = document.getElementById('message') ? document.getElementById('message').value : '';
+            const nameInput = document.getElementById('name');
+            const nameValue = nameInput ? nameInput.value : 'Sin Nombre';
+
+            // Usando FormSubmit para enviar correo real sin backend
+            fetch('https://formsubmit.co/ajax/branchloop@gmail.com', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Nombre: nameValue,
+                    Correo: emailValue,
+                    Mensaje: messageValue
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
                 btn.innerText = originalText;
                 btn.disabled = false;
                 form.reset();
-                
-                typeWriterEffect(statusDiv, '> TRANSMISIÓN EXITOSA. RECIBIDO EN LA BASE DE DATOS PRINCIPAL. FIN DE MENSAJE.', 50);
-            }, 1500);
+                typeWriterEffect(statusDiv, '> TRANSMISIÓN EXITOSA. CONTACTO ESTABLECIDO CON LA CENTRAL (BRANCHLOOP@GMAIL.COM). FIN DE MENSAJE.', 40);
+            })
+            .catch(error => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                typeWriterEffect(statusDiv, '> ERROR CRÍTICO DE TRANSMISIÓN. FALLO AL ENVIAR CORREO.', 40);
+            });
         });
     }
 
