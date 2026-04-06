@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos Básicos Linux | BRANCHED LOOP</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Orbitron:wght@600;800&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #080808;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            /* Abarca toda la pantalla inicial */
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-top: 0;
+            /* Para que quede destras del header transparente */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: -15%;
+            left: 0;
+            width: 100vw;
+            height: 130%;
+            /* Extra height for parallax */
+            background-image: url('imagenes/linuxfondo1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            /* We'll animate via JS */
+            z-index: -1;
+            opacity: 0.4;
+            /* Slightly dim the background */
+            will-change: transform, background-position;
+        }
+
+        .hero-content {
+            width: 50%;
+            padding: 4rem;
+            z-index: 1;
+            animation: fadeInLeft 1s ease-out forwards;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 0px #000, 0 0 15px rgba(245, 148, 0, 0.4);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-family: 'Inconsolata', monospace;
+            background: rgba(46, 46, 47, 0.85);
+            padding: 2rem;
+            border-left: 4px solid #f59400;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .topic-card {
+            display: flex;
+            background-color: #191818;
+            border: 1px solid #2e2e2f;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .topic-card:hover {
+            border-color: #f59400;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .topic-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .topic-card.visible:hover {
+            transform: translateY(-5px);
+        }
+
+        .topic-content {
+            flex: 1;
+            /* Space for the description */
+            padding: 2.5rem;
+        }
+
+        .topic-thumbnail-space {
+            flex: 0 0 320px;
+            /* space for video thumbnail */
+            background-color: #0d0d0d;
+            background-image: repeating-linear-gradient(45deg, #191818 25%, transparent 25%, transparent 75%, #191818 75%, #191818), repeating-linear-gradient(45deg, #191818 25%, #0d0d0d 25%, #0d0d0d 75%, #191818 75%, #191818);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 2px solid #f59400;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-thumbnail-space::after {
+            content: '(Miniatura de Video)';
+            font-family: 'Inconsolata', monospace;
+            color: #777;
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: 1px dashed #555;
+        }
+
+        .topic-title {
+            font-family: 'Orbitron', sans-serif;
+            color: #f59400;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topic-title::before {
+            content: '>';
+            color: #f59400;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .topic-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .topic-list li {
+            margin-bottom: 0.8rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            position: relative;
+            padding-left: 1.5rem;
+            color: #ccc;
+        }
+
+        .topic-list li::before {
+            content: '-';
+            color: #f59400;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-family: 'Inconsolata', monospace;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            transition-delay: 0.5s;
+        }
+
+        .stagger-6 {
+            transition-delay: 0.6s;
+        }
+
+        @media (max-width: 1200px) {
+            .hero-content {
+                width: 65%;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .topic-card {
+                flex-direction: column;
+            }
+
+            .topic-thumbnail-space {
+                flex: none;
+                height: 250px;
+                border-left: none;
+                border-top: 2px solid #f59400;
+            }
+
+            .hero-content {
+                width: 80%;
+                padding: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                width: 90%;
+                padding: 1.5rem;
+                margin-top: 60px;
+                /* Espacio extra en telefonos por el menú */
+            }
+
+            .hero-content p {
+                font-size: 1.05rem;
+                padding: 1.5rem;
+            }
+
+            .topic-content {
+                padding: 1.5rem;
+            }
+
+            .topic-title {
+                font-size: 1.3rem;
+            }
+
+            .topic-list li {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content {
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+                padding: 1rem;
+            }
+
+            .topic-card {
+                margin-bottom: 1.5rem;
+            }
+
+            .topic-content {
+                padding: 1.2rem;
+            }
+
+            .topic-thumbnail-space {
+                height: 180px;
+            }
+
+            .course-container {
+                padding: 0 1rem;
+                margin: 2rem auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="home bg-dark">
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+
+    <header class="header">
+        <a href="index.html" class="brand">
+            <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hexagon Top -->
+                <polygon points="50,5 75,20 75,45 50,60 25,45 25,20" fill="none" stroke="#f59400" stroke-width="8"
+                    stroke-linejoin="round" />
+                <!-- Hexagon Bottom Left -->
+                <polygon points="28,48 53,63 53,88 28,103 3,88 3,63" fill="none" stroke="#f59400" stroke-width="8"
+                    stroke-linejoin="round" transform="translate(0, -5)" />
+                <!-- Hexagon Bottom Right -->
+                <polygon points="72,48 97,63 97,88 72,103 47,88 47,63" fill="none" stroke="#f59400" stroke-width="8"
+                    stroke-linejoin="round" transform="translate(0, -5)" />
+            </svg>
+            <span class="brand-name">BRANCHED LOOP</span>
+        </a>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <!-- <a href="servicios.html" class="nav-link">Servicios</a> -->
+            <a href="cursos.html" class="nav-link">Cursos</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-bg" id="parallax-bg"></div>
+        <div class="hero-content">
+            <h1>Fundamentos Básicos Linux</h1>
+            <p>Domina la terminal, gestión de usuarios, archivos y permisos. Una base sólida y esencial en sistemas
+                operativos de código abierto ideales para futuros desarrolladores y administradores de sistemas</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section class="course-container">
+            <h2 class="section-title font-title" style="margin-bottom: 3rem; text-align: center;">Temario del Curso</h2>
+
+            <div class="topic-card stagger-1">
+                <div class="topic-content">
+                    <h3 class="topic-title">Introducción al Ecosistema LINUX</h3>
+                    <ul class="topic-list">
+                        <li>¿Qué es el Kernel?</li>
+                        <li>Diferencias entre distribuciones (Debian vs. Arch vs. Fedora) y cuál elegir para empezar.
+                        </li>
+                    </ul>
+                </div>
+                <div class="topic-thumbnail-space"></div>
+            </div>
+
+            <div class="topic-card stagger-2">
+                <div class="topic-content">
+                    <h3 class="topic-title">Instalación y Entorno</h3>
+                    <ul class="topic-list">
+                        <li>Cómo crear una máquina virtual (VirtualBox/VMware).</li>
+                        <li>Usar WSL2 en Windows.</li>
+                    </ul>
+                </div>
+                <div class="topic-thumbnail-space"></div>
+            </div>
+
+            <div class="topic-card stagger-3">
+                <div class="topic-content">
+                    <h3 class="topic-title">Jerarquía de Directorios</h3>
+                    <ul class="topic-list">
+                        <li>Entender que en Linux "todo es un archivo".</li>
+                        <li>Explicación de /bin, /etc, /home, /var y /root.</li>
+                    </ul>
+                </div>
+                <div class="topic-thumbnail-space"></div>
+            </div>
+
+            <div class="topic-card stagger-4">
+                <div class="topic-content">
+                    <h3 class="topic-title">Comandos de Supervivencia</h3>
+                    <ul class="topic-list">
+                        <li><strong>Navegación:</strong> pwd, ls, cd.</li>
+                        <li><strong>Manipulación:</strong> mkdir, touch, cp, mv, rm.</li>
+                        <li><strong>Lectura:</strong> cat, head, tail, less.</li>
+                    </ul>
+                </div>
+                <div class="topic-thumbnail-space"></div>
+            </div>
+
+            <div class="topic-card stagger-5">
+                <div class="topic-content">
+                    <h3 class="topic-title">Gestión de Paquetes</h3>
+                    <ul class="topic-list">
+                        <li>Cómo instalar software usando apt o dnf.</li>
+                    </ul>
+                </div>
+                <div class="topic-thumbnail-space"></div>
+            </div>
+
+            <div class="topic-card stagger-6">
+                <div class="topic-content">
+                    <h3 class="topic-title">Usuarios y Permisos</h3>
+                    <ul class="topic-list">
+                        <li>Conceptos de root, sudo.</li>
+                        <li>La tríada de permisos (Lectura, Escritura, Ejecución).</li>
+                    </ul>
+                </div>
+                <div class="topic-thumbnail-space"></div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="font-body">&copy; 2026 BRANCHED LOOP. Todos los derechos reservados. <span class="blink">_</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Animaciones de scroll para los contenedores (Interseccion Observer)
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            const cards = document.querySelectorAll('.topic-card');
+            cards.forEach((card) => {
+                observer.observe(card);
+            });
+
+            // Animación de scroll para el fondo (Parallax effect)
+            const bg = document.getElementById('parallax-bg');
+            window.addEventListener('scroll', function () {
+                let offset = window.pageYOffset;
+                // Move bg image slowly
+                bg.style.transform = "translateY(" + (offset * 0.4) + "px)";
+            });
+        });
+    </script>
+</body>
+
+</html>
