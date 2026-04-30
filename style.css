@@ -130,14 +130,21 @@ body {
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
+    height: 45px;
+    width: auto;
     filter: drop-shadow(0 0 5px var(--accent-glow));
-    transition: transform 0.3s ease;
+    animation: spinLogo 8s linear infinite;
+    transition: filter 0.3s ease, animation-duration 0.3s ease;
+}
+
+@keyframes spinLogo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .brand:hover .logo {
-    transform: rotate(30deg) scale(1.1);
+    animation: spinLogo 2s linear infinite;
+    filter: drop-shadow(0 0 15px var(--accent-glow));
 }
 
 .brand-name {
