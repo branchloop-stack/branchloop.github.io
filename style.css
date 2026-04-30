@@ -526,3 +526,120 @@ body.home .header.scrolled {
         border-bottom: 2px solid var(--bg-medium);
     }
 }
+
+/* Utilidades y Clases Extraídas */
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.min-vh-100 { min-height: 100vh; }
+.align-items-center { align-items: center; }
+.justify-content-center { justify-content: center; }
+.gap-4rem { gap: 4rem; }
+.gap-1rem { gap: 1rem; }
+.gap-2-5rem { gap: 2.5rem; }
+.gap-60px { gap: 60px; }
+.flex-wrap { flex-wrap: wrap; }
+.max-w-1200 { max-width: 1200px; }
+.max-w-1400 { max-width: 1400px; }
+.shift-left { transform: translateX(-40px); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.px-2rem { padding-left: 2rem; padding-right: 2rem; }
+.py-4rem { padding-top: 4rem; padding-bottom: 4rem; }
+.mt-auto { margin-top: auto; }
+.mb-0 { margin-bottom: 0; }
+.mb-1rem { margin-bottom: 1rem; }
+.mb-2rem { margin-bottom: 2rem; }
+.mb-3rem { margin-bottom: 3rem; }
+.mb-12rem { margin-bottom: 12rem; }
+.mt-4rem { margin-top: 4rem; }
+.my-4rem { margin-top: 4rem; margin-bottom: 4rem; }
+.pt-6rem { padding-top: 6rem; }
+.pb-2rem { padding-bottom: 2rem; }
+.pb-4rem { padding-bottom: 4rem; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-decoration-none { text-decoration: none; }
+.color-inherit { color: inherit; }
+.d-block { display: block; }
+.d-inline-block { display: inline-block; }
+.flex-0-auto { flex: 0 0 auto; }
+.flex-1-500 { flex: 1 1 500px; }
+.flex-1 { flex: 1; }
+
+/* Contacto y Servicios especificos */
+.contact-bg-wrapper { background-color: var(--brand-yellow); padding: 4rem 2rem; width: 100%; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+.contact-inner-wrapper { max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: flex-end; }
+.color-accent { color: var(--accent); }
+.color-dark { color: #191818; }
+.border-bottom-dark { border-bottom-color: #191818; }
+.m-0 { margin: 0; }
+.w-100 { width: 100%; }
+
+/* Quienes Somos */
+.perfil-img { width: 450px; height: 450px; max-width: 100%; border-radius: 50%; object-fit: cover; object-position: center 15%; border: 3px solid #e0e0e0; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.social-icon { width: 50px; height: 50px; filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg); transition: transform 0.3s ease; }
+.social-icon:hover { transform: translateY(-5px); }
+.quienes-somos-text { font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; margin: 0; }
+
+/* Cursos */
+.course-card-inner { display: flex; padding: 0; overflow: hidden; background-color: var(--bg-dark); border-radius: 4px; transition: transform 0.3s ease; }
+.course-card-inner:hover .course-img { transform: scale(1.05); }
+.course-content-col { padding: 2.5rem; flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+.course-img-col { flex: 1; border-left: 2px solid var(--bg-medium); display: flex; overflow: hidden; }
+.course-img { width: 100%; height: 100%; object-fit: cover; min-height: 250px; transition: transform 0.3s ease; }
+.course-card-title { font-size: 1.4rem; font-family: "Orbitron", sans-serif; margin-bottom: 1rem; color: #fff; }
+.course-card-desc { font-size: 0.95rem; line-height: 1.6; margin-bottom: 0; color: #ccc; }
+
+/* Extracted from cursos.html */
+.grid-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background-size: 40px 40px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px); pointer-events: none; }
+.mouse-glow { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; background: radial-gradient(circle 400px at var(--mouse-x, 50vw) var(--mouse-y, -200vh), rgba(245, 148, 0, 0.12), transparent 80%); pointer-events: none; }
+
+/* Extracted from f_b_linux.html */
+.hero-section { position: relative; height: 100vh; min-height: 400px; display: flex; align-items: center; overflow: hidden; margin-top: 0; }
+.hero-bg { position: absolute; top: -15%; left: 0; width: 100vw; height: 130%; background-image: url("imagenes/linuxfondo1.png"); background-size: cover; background-position: center; background-attachment: scroll; z-index: -1; opacity: 0.4; will-change: transform, background-position; }
+.hero-content-linux { width: 50%; padding: 4rem; z-index: 1; animation: fadeInLeft 1s ease-out forwards; margin: 0 auto; }
+.hero-content-linux h1 { font-family: "Orbitron", sans-serif; font-size: 3.5rem; margin-bottom: 1rem; color: #fff; text-shadow: 2px 2px 0px #000, 0 0 15px rgba(245, 148, 0, 0.4); }
+.hero-content-linux p { font-size: 1.2rem; line-height: 1.8; font-family: "Inconsolata", monospace; background: rgba(46, 46, 47, 0.85); padding: 2rem; border-left: 4px solid #f59400; border-radius: 4px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); }
+.course-container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
+.topic-card { display: flex; background-color: #191818; border: 1px solid #2e2e2f; border-radius: 8px; margin-bottom: 2rem; overflow: hidden; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
+.topic-card:hover { border-color: #f59400; transform: translateY(-5px); transition: all 0.3s ease; }
+.topic-card.visible { opacity: 1; transform: translateY(0); }
+.topic-card.visible:hover { transform: translateY(-5px); }
+.topic-content { flex: 1; padding: 2.5rem; }
+.topic-thumbnail-space { flex: 0 0 320px; background-color: #0d0d0d; background-image: repeating-linear-gradient(45deg, #191818 25%, transparent 25%, transparent 75%, #191818 75%, #191818), repeating-linear-gradient(45deg, #191818 25%, #0d0d0d 25%, #0d0d0d 75%, #191818 75%, #191818); background-position: 0 0, 10px 10px; background-size: 20px 20px; display: flex; align-items: center; justify-content: center; border-left: 2px solid #f59400; position: relative; overflow: hidden; }
+.topic-thumbnail-space::after { content: "(Miniatura de Video)"; font-family: "Inconsolata", monospace; color: #777; font-size: 1rem; background: rgba(0, 0, 0, 0.7); padding: 0.5rem 1rem; border-radius: 4px; border: 1px dashed #555; }
+.topic-title { font-family: "Orbitron", sans-serif; color: #f59400; font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+.topic-title::before { content: ">"; color: #f59400; font-family: "Inconsolata", monospace; }
+.topic-list { list-style-type: none; padding: 0; }
+.topic-list li { margin-bottom: 0.8rem; font-family: "Roboto", sans-serif; font-size: 1rem; line-height: 1.5; position: relative; padding-left: 1.5rem; color: #ccc; }
+.topic-list li::before { content: "-"; color: #f59400; position: absolute; left: 0; top: 0; font-family: "Inconsolata", monospace; font-weight: bold; }
+@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+@media (max-width: 1200px) { .hero-content-linux { width: 65%; } }
+@media (max-width: 900px) {
+    .topic-card { flex-direction: column; }
+    .topic-thumbnail-space { flex: none; height: 250px; border-left: none; border-top: 2px solid #f59400; }
+    .hero-content-linux { width: 80%; padding: 2rem; }
+    .hero-content-linux h1 { font-size: 2.8rem; }
+}
+@media (max-width: 768px) {
+    .hero-content-linux { width: 90%; padding: 1.5rem; margin-top: 60px; }
+    .hero-content-linux p { font-size: 1.05rem; padding: 1.5rem; }
+    .topic-content { padding: 1.5rem; }
+    .topic-title { font-size: 1.3rem; }
+    .topic-list li { font-size: 0.95rem; }
+}
+@media (max-width: 480px) {
+    .hero-content-linux h1 { font-size: 2.2rem; }
+    .hero-content-linux { width: 95%; padding: 1rem; }
+    .hero-content-linux p { font-size: 0.95rem; padding: 1rem; }
+    .topic-card { margin-bottom: 1.5rem; }
+    .topic-content { padding: 1.2rem; }
+    .topic-thumbnail-space { height: 180px; }
+    .course-container { padding: 0 1rem; margin: 2rem auto; }
+}

@@ -71,13 +71,13 @@
     </style>
 </head>
 
-<body class="bg-white" style="display: flex; flex-direction: column; min-height: 100vh;">
+<body class="bg-white d-flex flex-column min-vh-100">
     <div class="crt-overlay"></div>
     <div class="scanlines"></div>
 
     <header class="header">
         <div class="brand">
-            <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:1rem;">
+            <a href="index.html" class="text-decoration-none d-flex align-items-center gap-1rem">
                 <img class="logo" src="imagenes/bloopnew.png" alt="Bridges Loop Logo">
                 <span class="brand-name">BRIDGES LOOP</span>
             </a>
@@ -90,23 +90,22 @@
         </nav>
     </header>
 
-    <main class="main-content" style="flex: 0 0 auto; padding-top: 6rem; padding-bottom: 4rem;">
-        <section class="section animate-on-load" style="text-align: center; margin-bottom: 0; padding-bottom: 2rem;">
-            <h2 class="section-title font-title" style="color: var(--accent);">Horarios y Citas</h2>
-            <p class="font-body" style="font-size: 1.2rem; color: #191818;">
+    <main class="main-content flex-0-auto pt-6rem pb-4rem">
+        <section class="section animate-on-load text-center mb-0 pb-2rem">
+            <h2 class="section-title font-title color-accent">Horarios y Citas</h2>
+            <p class="font-body color-dark" style="font-size: 1.2rem;">
                 Lunes a viernes: 9:00 a.m. a 6:00 p.m.<br>
                 Sábado y Domingo: cerrado.
             </p>
         </section>
     </main>
 
-    <div
-        style="background-color: #fcca00; padding: 4rem 2rem; width: 100%; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center;">
-        <div style="max-width: 1200px; width: 100%; margin: 0 auto; display: flex; justify-content: flex-end;">
-            <section id="contacto" class="animate-on-load" style="width: 100%; max-width: 600px;">
-                <h2 class="section-title font-title" style="color: #191818; border-bottom-color: #191818;">// CONTACTO
+    <div class="contact-bg-wrapper">
+        <div class="contact-inner-wrapper">
+            <section id="contacto" class="animate-on-load w-100" style="max-width: 600px;">
+                <h2 class="section-title font-title color-dark border-bottom-dark">// CONTACTO
                 </h2>
-                <div class="contact-form-wrapper panel-3d" style="margin: 0; width: 100%;">
+                <div class="contact-form-wrapper panel-3d m-0 w-100">
                     <form class="contact-form panel-inner">
                         <div class="form-group">
                             <label for="email">> Correo_Terminal</label>
@@ -124,7 +123,7 @@
         </div>
     </div>
 
-    <footer class="footer" style="margin-top: auto;">
+    <footer class="footer mt-auto">
         <p class="font-body">&copy; 2026 BRIDGES LOOP. Todos los derechos reservados. <span class="blink">_</span></p>
     </footer>
 

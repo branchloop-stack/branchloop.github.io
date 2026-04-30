@@ -115,5 +115,39 @@ document.addEventListener('DOMContentLoaded', () => {
             soundClone.play().catch(err => console.log('Audio play failed:', err));
         });
     });
-});
 
+    // Mouse glow effect
+    const glow = document.querySelector('.mouse-glow');
+    if (glow) {
+        window.addEventListener('mousemove', (e) => {
+            glow.style.setProperty('--mouse-x', e.clientX + 'px');
+            glow.style.setProperty('--mouse-y', e.clientY + 'px');
+        });
+    }
+
+    // Animaciones de scroll para los contenedores (Interseccion Observer)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    const cards = document.querySelectorAll('.topic-card');
+    cards.forEach((card) => {
+        observer.observe(card);
+    });
+
+    // Animación de scroll para el fondo (Parallax effect)
+    const bg = document.getElementById('parallax-bg');
+    if (bg) {
+        window.addEventListener('scroll', function () {
+            let offset = window.pageYOffset;
+            bg.style.transform = "translateY(" + (offset * 0.4) + "px)";
+        });
+    }
+});
